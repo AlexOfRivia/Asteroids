@@ -4,7 +4,13 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "Asteroids");
 
-
+    /*BUILD PLAN
+    - Add a working menu
+    - Add Player and Asteroid Class
+    - Add Player Movement
+    - Add Shooting
+    - Add Asteroid Movement
+    - Add a Score System (Maybe a Health System Also?)*/
 
 
     while (window.isOpen())
