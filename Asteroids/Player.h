@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
@@ -13,7 +14,7 @@ public:
 
 private:
 	sf::Sprite playerSprite;
-	sf::Texture payerTexture;
+	sf::Texture playerTexture;
 
 	//Private Functions
 	void InitTexture();

@@ -27,7 +27,11 @@ class Game
 	sf::RenderWindow* window;
 	sf::Event event;
 	
+	//Player
+	Player* player;
+
 	//private functions
 	void InitVariables();
 	void InitWindow();
+	void InitPlayer();
 };

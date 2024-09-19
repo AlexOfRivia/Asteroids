@@ -37,6 +37,12 @@ void Game::InitVariables()
 	this->window = nullptr;
 }
 
+//Initializing the player object
+void Game::InitPlayer()
+{
+
+}
+
 //Initializing the window
 void Game::InitWindow()
 {
