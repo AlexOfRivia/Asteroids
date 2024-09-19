@@ -13,14 +13,19 @@ class Game
 {
 	public:
 	//public functions
+	void updateEvents();
 	void Update();
 	void Render();
+
+	const bool isRunning() const;
+
 	Game();
 	~Game();
 
 	private:
 		sf::RenderWindow* window;
 		sf::Event event;
+		//private functions
 		void InitVariables();
 		void InitWindow();
 };
