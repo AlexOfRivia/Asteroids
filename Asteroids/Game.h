@@ -3,7 +3,8 @@
 #include "Player.h"
 
 /*
-This class basically acts as a game engine
+This class basically could be called a "Game engine".
+In it, we are rendering everything that is going on in the game/app.
 */
 
 class Game
