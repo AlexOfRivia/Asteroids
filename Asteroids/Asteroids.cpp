@@ -6,7 +6,7 @@ int main()
 
     /*BUILD PLAN
     - Add a working menu
-    - Add Player and Asteroid Class
+    - Add Asteroid Class
     - Add Player Movement
     - Add Shooting
     - Add Asteroid Movement

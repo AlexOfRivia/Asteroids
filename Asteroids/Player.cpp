@@ -32,9 +32,17 @@ void Player::InitTexture()
 	} 
 }
 
+//Player movement
+void Player::playerMovement(const float& dirX, const float& dirY)
+{
+	this->playerSprite.move(this->movementSpeed*dirX,this->movementSpeed*dirY);
+}
+
 //Constructor
 Player::Player()
 {
+	this->movementSpeed = 3.f;
+
 	this->InitTexture(); //Texture should always be initialized first
 	this->InitSprite();
 }
