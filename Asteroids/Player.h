@@ -1,10 +1,6 @@
 #pragma once
-#include <iostream>
-#include <cmath>
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Window.hpp>
+#include "Bullet.h"
+
 
 class Player
 {
@@ -13,7 +9,7 @@ public:
 	void playerMovement(const float& dirX, const float& dirY);
 	void playerRotation(float dt, sf::Vector2f mousePosition);
 	void updatePlayer(float dt, sf::RenderWindow* win); //This function is for controlling the player basically - it makes the process of adding new controlls easier
-	void renderPlayer(sf ::RenderTarget& target);
+	void renderPlayer(sf::RenderTarget& target);
 
 	//Constructor & Destructor
 	Player();
