@@ -41,6 +41,8 @@ void Game::InitVariables()
 void Game::InitWindow()
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Asteroids", sf::Style::Titlebar | sf::Style::Close);
+	this->window->setFramerateLimit(144);
+	this->window->setVerticalSyncEnabled(false);
 }
 
 //Constructor
