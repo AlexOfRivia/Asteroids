@@ -11,7 +11,7 @@ public:
 	//Public Functions
 	void playerMovement(const float& dirX, const float& dirY);
 	void updatePlayer();
-	void renderPlayer(sf::RenderTarget& target);
+	void renderPlayer(sf ::RenderTarget& target);
 
 	//Constructor & Destructor
 	Player();

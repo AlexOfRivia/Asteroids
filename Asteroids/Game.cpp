@@ -21,6 +21,7 @@ void Game::updateEvents()
 			this->window->close();
 	}
 
+	
 	//Player Movement will go here
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 	{
