@@ -20,6 +20,8 @@ void Game::updateEvents()
 		if (this->event.type == sf::Event::Closed)
 			this->window->close();
 	}
+
+	//Player Movement will go here
 }
 
 //Rendering
@@ -27,7 +29,7 @@ void Game::Render()
 {
 	this->window->clear(sf::Color(37,37,37,0)); //Clears old frame
 	//Rendering(drawing) the objects
-
+	this->player->renderPlayer(*this->window);
 	this->window->display(); //Displays new frame
 }
 
@@ -40,7 +42,7 @@ void Game::InitVariables()
 //Initializing the player object
 void Game::InitPlayer()
 {
-
+	this->player = new Player();
 }
 
 //Initializing the window
@@ -56,10 +58,12 @@ Game::Game()
 {
 	this->InitVariables(); //this function must be first, because of window being set to nullptr
 	this->InitWindow();
+	this->InitPlayer();
 }
 
 //Destructor
 Game::~Game()
 {
 	delete this->window;
+	delete this->player;
 }

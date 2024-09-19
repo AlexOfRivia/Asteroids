@@ -19,6 +19,7 @@ void Player::InitSprite()
 	//Set texture to sprite
 	this->playerSprite.setTexture(this->playerTexture);
 	//Resizing Sprite
+	this->playerSprite.scale(0.10f,0.10f);
 }
 
 //Initializing the player texture

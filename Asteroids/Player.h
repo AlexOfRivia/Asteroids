@@ -12,6 +12,10 @@ public:
 	void updatePlayer();
 	void renderPlayer(sf::RenderTarget& target);
 
+	//Constructor & Destructor
+	Player();
+	~Player();
+
 private:
 	sf::Sprite playerSprite;
 	sf::Texture playerTexture;
@@ -20,9 +24,6 @@ private:
 	void InitTexture();
 	void InitSprite();
 
-	//Constructor & Destructor
-	Player();
-	~Player();
 
 };
 
