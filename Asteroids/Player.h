@@ -11,7 +11,8 @@ class Player
 public:
 	//Public Functions
 	void playerMovement(const float& dirX, const float& dirY);
-	void updatePlayer();
+	void playerRotation(float dt, sf::Vector2f mousePosition);
+	void updatePlayer(float dt, sf::RenderWindow* win);
 	void renderPlayer(sf ::RenderTarget& target);
 
 	//Constructor & Destructor

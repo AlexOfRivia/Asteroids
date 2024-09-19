@@ -2,9 +2,29 @@
 
 
 //Updating the player
-void Player::updatePlayer()
+void Player::updatePlayer(float dt, sf::RenderWindow* win)
 {
+	//Movement in general
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+	{
+		this->playerMovement(-1.f, 0.f);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+	{
+		this->playerMovement(1.f, 0.f);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+	{
+		this->playerMovement(0.f, -1.f);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+	{
+		this->playerMovement(0.f, 1.f);
+	}
 
+	//Sprite rotation
+	sf::Vector2i mousePosition = sf::Mouse::getPosition(*win);
+	this->playerRotation(dt, (sf::Vector2f)mousePosition);
 }
 
 //Rendering the player object
@@ -41,6 +61,35 @@ Improve player movement:
 void Player::playerMovement(const float& dirX, const float& dirY)
 {
 	this->playerSprite.move(this->movementSpeed*dirX,this->movementSpeed*dirY);
+}
+
+void Player::playerRotation(float dt, sf::Vector2f mousePosition)
+{
+	const auto playerPosition = this->playerSprite.getPosition();
+	// set player position to center of sprite
+	//playerPosition.x += 32.0f;
+	//playerPosition.y += 32.0f;
+
+	// vector pointing from center of player to mouse
+	auto mouseDirection = mousePosition - playerPosition;
+
+	// normalize the direction
+	const float magnitude = sqrtf((mouseDirection.x * mouseDirection.x) + (mouseDirection.y * mouseDirection.y));
+
+	mouseDirection.x /= magnitude;
+	mouseDirection.y /= magnitude;
+	//float magnitude = sqrtf((mouseDirection.x * mouseDirection.x) + (mouseDirection.y * mouseDirection.y));
+	//mouseDirection /= magnitude;
+
+	// find angle using x-cord
+	float angle = acosf(mouseDirection.x);
+	// convert angle to deg
+	angle *= (180.0f / 3.14159f);
+
+	// check quadrant
+	if (mouseDirection.y < 0.0f) angle = 360.0f - angle;
+
+	this->playerSprite.setRotation(angle);
 }
 
 //Constructor
