@@ -2,7 +2,6 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Asteroids");
 
     /*BUILD PLAN
     - Add a working menu
@@ -12,7 +11,10 @@ int main()
     - Add Asteroid Movement
     - Add a Score System (Maybe a Health System Also?)*/
 
+    //Main Window
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Asteroids", sf::Style::Titlebar | sf::Style::Close);
 
+    //Application(Game) Loop
     while (window.isOpen())
     {
         sf::Event event;
@@ -22,7 +24,8 @@ int main()
                 window.close();
         }
 
-        window.clear(sf::Color(37, 37, 37, 0)); //Ciemniejszy kolor
+        window.clear(sf::Color(37, 37, 37, 0)); //Clears old frame
+
         window.display();
     }
 
