@@ -25,19 +25,19 @@ void Game::updateEvents()
 	//Player Movement will go here
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 	{
-		this->player->playerMovement(-1.f,0.f);
+		this->player->playerMovement(-3.f,0.f);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 	{
-		this->player->playerMovement(1.f, 0.f);
+		this->player->playerMovement(3.f, 0.f);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
-		this->player->playerMovement(0.f, -1.f);
+		this->player->playerMovement(0.f, -3.f);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
-		this->player->playerMovement(0.f, 1.f);
+		this->player->playerMovement(0.f, 3.f);
 	}
 }
 
