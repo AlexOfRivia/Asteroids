@@ -46,7 +46,7 @@ void Player::playerMovement(const float& dirX, const float& dirY)
 //Constructor
 Player::Player()
 {
-	this->movementSpeed = 3.f;
+	this->movementSpeed = 5.f;
 
 	this->InitTexture(); //Texture should always be initialized first
 	this->InitSprite();
