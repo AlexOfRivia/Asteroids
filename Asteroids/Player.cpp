@@ -38,6 +38,10 @@ void Player::InitSprite()
 {
 	//Set texture to sprite
 	this->playerSprite.setTexture(this->playerTexture);
+
+	//Find Center of the sprite
+	this->playerSprite.setOrigin(sf::Vector2f((float)this->playerSprite.getTexture()->getSize().x / 2, (float)this->playerSprite.getTexture()->getSize().y / 2));
+	
 	//Resizing Sprite
 	this->playerSprite.scale(0.10f,0.10f);
 }
@@ -52,24 +56,17 @@ void Player::InitTexture()
 	} 
 }
 
-/*TODO
-Improve player movement:
-- Use mouse to choose direction & initialize projectiles
-*/
-
 //Player movement
 void Player::playerMovement(const float& dirX, const float& dirY)
 {
 	this->playerSprite.move(this->movementSpeed*dirX,this->movementSpeed*dirY);
 }
 
+//Player rotation based on mouse position
 void Player::playerRotation(float dt, sf::Vector2f mousePosition)
 {
-	const auto playerPosition = this->playerSprite.getPosition();
-	// set player position to center of sprite
-	//playerPosition.x += 32.0f;
-	//playerPosition.y += 32.0f;
-
+	auto playerPosition = this->playerSprite.getPosition();
+	
 	// vector pointing from center of player to mouse
 	auto mouseDirection = mousePosition - playerPosition;
 
@@ -83,7 +80,7 @@ void Player::playerRotation(float dt, sf::Vector2f mousePosition)
 
 	// find angle using x-cord
 	float angle = acosf(mouseDirection.x);
-	// convert angle to deg
+	// converting angle to deg
 	angle *= (180.0f / 3.14159f);
 
 	// check quadrant
