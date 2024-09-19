@@ -17,6 +17,7 @@ class Game
 	void Update();
 	void Render();
 
+
 	//bool for checking if the window is runing
 	const bool isRunning() const;
 
@@ -25,10 +26,12 @@ class Game
 	~Game();
 
 	private:
-		sf::RenderWindow* window;
-		sf::Event event;
-		//private functions
-		void InitVariables();
-		void InitWindow();
+	bool endGame;
+	sf::RenderWindow* window;
+	sf::Event event;
+	
+	//private functions
+	void InitVariables();
+	void InitWindow();
 };
 
