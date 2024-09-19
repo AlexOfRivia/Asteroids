@@ -7,7 +7,6 @@ int main()
     /*BUILD PLAN
     - Add a working menu
     - Add Asteroid Class
-    - Add Player Movement
     - Add Shooting
     - Add Asteroid Movement
     - Add a Score System (Maybe a Health System Also?)*/

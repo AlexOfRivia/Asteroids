@@ -32,6 +32,11 @@ void Player::InitTexture()
 	} 
 }
 
+/*TODO
+Improve player movement:
+- A Key to move forward
+- Use mouse to choose direction & initialize projectiles*/
+
 //Player movement
 void Player::playerMovement(const float& dirX, const float& dirY)
 {
