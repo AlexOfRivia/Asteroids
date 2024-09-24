@@ -70,4 +70,10 @@ Game::~Game()
 {
 	delete this->window;
 	delete this->player;
+
+	//Deleting textures
+	for( auto &i : this->loadTexture)
+	{
+		delete i.second;
+	}
 }

@@ -18,9 +18,9 @@ Bullet::Bullet()
 {
 
 }
-Bullet::Bullet(sf::Texture & bTexture, float dirX, float dirY, float speed)
+Bullet::Bullet(sf::Texture* bTexture, float dirX, float dirY, float posX, float posY, float speed)
 {
-	this->bulletSprite.setTexture(bTexture);
+	this->bulletSprite.setTexture(*bTexture);
 	this->bulletDirection.x = dirX;
 	this->bulletDirection.y = dirY;
 	this->bulletSpeed = speed;

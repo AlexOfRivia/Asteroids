@@ -19,7 +19,7 @@ public:
 	void Render(sf::RenderTarget* target);
 	//Constructors & Destructor
 	Bullet();
-	Bullet(sf::Texture & bTexture, float dirX, float dirY, float speed);
+	Bullet(sf::Texture* bTexture, float dirX, float dirY, float posX, float posY, float speed);
 	~Bullet();
 };
 

@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+#include <map>
 #include "Player.h"
+#include "Bullet.h"
 
 /*
 This class basically could be called a "Game engine".
@@ -30,6 +32,9 @@ class Game
 	
 	//Player
 	Player* player;
+
+	//Resources
+	std::map<std::string, sf::Texture*> loadTexture;
 
 	//private functions
 	void InitVariables();
