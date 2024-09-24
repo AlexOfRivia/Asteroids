@@ -4,7 +4,7 @@
 //Updating the player
 void Player::updatePlayer(float dt, sf::RenderWindow* win)
 {
-	//Movement in general
+	//General Movement
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 	{
 		this->playerMovement(-1.f, 0.f);
@@ -20,6 +20,12 @@ void Player::updatePlayer(float dt, sf::RenderWindow* win)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
 		this->playerMovement(0.f, 1.f);
+	}
+
+	//Shooting
+	if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+
 	}
 
 	//Sprite rotation
