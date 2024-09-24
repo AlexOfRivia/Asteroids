@@ -38,6 +38,7 @@ class Game
 
 	//private functions
 	void InitVariables();
+	void InitTextures();
 	void InitWindow();
 	void InitPlayer();
 };

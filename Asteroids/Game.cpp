@@ -43,6 +43,13 @@ void Game::InitVariables()
 	this->window = nullptr;
 }
 
+void Game::InitTextures()
+{
+	this->loadTexture["Bullet"] = new sf::Texture();
+	this->loadTexture["Bullet"]->loadFromFile("Textures/Bullet.png");
+
+}
+
 //Initializing the player object
 void Game::InitPlayer()
 {
