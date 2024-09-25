@@ -1,9 +1,7 @@
 #include "Bullet.h"
 
 
-/*TODO
--Add initializing the bullet upon mouse click
-*/
+
 void Bullet::Update()
 {
 	//Bullet Movement
@@ -30,6 +28,7 @@ Bullet::Bullet(sf::Texture* bTexture, float dirX, float dirY, float posX, float 
 	this->bulletDirection.x = dirX;
 	this->bulletDirection.y = dirY;
 	this->bulletSpeed = speed;
+
 }
 //Destructor
 Bullet::~Bullet()

@@ -23,21 +23,37 @@ void Game::updateEvents()
 
 	sf::Clock clock;
 	float dt = clock.restart().asSeconds();
-	//Player Movement will go here
+	//Next four lines are to get the mouse direction for the bullets
+	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->window);
+	auto playerPosition = this->player->playerPos();
+	auto mouseDirection = (sf::Vector2f)mousePosition - playerPosition;
+	const float magnitude = sqrtf((mouseDirection.x * mouseDirection.x) + (mouseDirection.y * mouseDirection.y));
 
+	//Player Movement
 	this->player->updatePlayer(dt, this->window);
+	this->bulletUpdates();
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"],1.f,1.f,this->player->playerPos().x, this->player->playerPos().y, 2.f));
+		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"], (mouseDirection.x /= magnitude), (mouseDirection.y /= magnitude), this->player->playerPos().x, this->player->playerPos().y, 2.f));
 	}
 }
 
 void Game::bulletUpdates()
 {
+	unsigned counter = 0;
 	//Rendering the bullets
 	for (auto* bullet : this->bullets)
 	{
 		bullet->Update();
+
+		//Removing bullet, when not visible
+		if (bullet->getBounds().top+bullet->getBounds().height <0.f )
+		{
+			delete this->bullets.at(counter);
+			this->bullets.erase(this->bullets.begin()+counter);
+			--counter; //Bullet deleted
+		}
+		++counter;
 	}
 }
 

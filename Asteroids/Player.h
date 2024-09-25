@@ -16,6 +16,7 @@ public:
 	void renderPlayer(sf::RenderTarget& target);
 
 	const sf::Vector2f& playerPos() const;
+	float getPlayerPosition();
 
 	//Constructor & Destructor
 	Player();
