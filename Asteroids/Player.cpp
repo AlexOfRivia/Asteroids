@@ -22,9 +22,21 @@ void Player::updatePlayer(float dt, sf::RenderWindow* win)
 		this->playerMovement(0.f, 1.f);
 	}
 
+	this->updateCooldown();
+
 	//Sprite rotation
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*win);
 	this->playerRotation(dt, (sf::Vector2f)mousePosition);
+}
+
+const bool Player::canShoot()
+{
+	if(this->bulletCooldown >= this->bulletCooldownMax)
+	{
+		this->bulletCooldown = 0.f;
+		return true;
+	} 
+	return false;
 }
 
 //Get players position for bullet Instantiating
@@ -37,6 +49,21 @@ const sf::Vector2f& Player::playerPos() const
 void Player::renderPlayer(sf::RenderTarget& target)
 {
 	target.draw(this->playerSprite);
+}
+
+//Updating the attack cooldown
+void Player::updateCooldown()
+{
+	if(this->bulletCooldown < this->bulletCooldownMax)
+	{
+		this->bulletCooldown += 0.5f;
+	}
+}
+
+void Player::initVariavles()
+{
+	this->bulletCooldownMax = 10.f;
+	this->bulletCooldown = this->bulletCooldownMax;
 }
 
 //Initializing the player sprite
@@ -96,8 +123,8 @@ void Player::playerRotation(float dt, sf::Vector2f mousePosition)
 //Constructor
 Player::Player()
 {
-	this->movementSpeed = 5.f;
-
+	this->movementSpeed = 3.f;
+	this->initVariavles();
 	this->InitTexture(); //Texture should always be initialized first
 	this->InitSprite();
 }

@@ -31,7 +31,7 @@ void Game::updateEvents()
 
 	//Player Movement
 	this->player->updatePlayer(dt, this->window);
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->player->canShoot())
 	{
 		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"], (mouseDirection.x /= magnitude), (mouseDirection.y /= magnitude), this->player->playerPos().x, this->player->playerPos().y, 6.f));
 	}
@@ -47,11 +47,12 @@ void Game::bulletUpdates()
 		bullet->Update();
 
 		//Removing bullet, when not visible
-		if (bullet->getBounds().top+bullet->getBounds().height <0.f )
+		if (bullet->getBounds().top+bullet->getBounds().height < 0.f || bullet->getBounds().left + bullet->getBounds().width < 0.f)
 		{
 			delete this->bullets.at(counter);
 			this->bullets.erase(this->bullets.begin()+counter);
 			--counter; //Bullet deleted
+			std::cout << "Bullet deleted\n";
 		}
 		++counter;
 	}

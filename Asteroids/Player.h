@@ -16,7 +16,8 @@ public:
 	void renderPlayer(sf::RenderTarget& target);
 
 	const sf::Vector2f& playerPos() const;
-	float getPlayerPosition();
+
+	const bool canShoot();
 
 	//Constructor & Destructor
 	Player();
@@ -25,10 +26,16 @@ public:
 private:
 	sf::Sprite playerSprite;
 	sf::Texture playerTexture;
+	
+	//Attack Cooldown
+	float bulletCooldown;
+	float bulletCooldownMax; //Whenever the max is hit, you can shoot the bullet again
 
 	float movementSpeed;
 
 	//Private Functions
+	void updateCooldown();
+	void initVariavles();
 	void InitTexture();
 	void InitSprite();
 
