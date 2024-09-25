@@ -35,10 +35,12 @@ class Game
 
 	//Resources
 	std::map<std::string, sf::Texture*> loadTexture;
+	std::vector<Bullet*> bullets;
 
 	//private functions
 	void InitVariables();
 	void InitTextures();
+	void bulletUpdates();
 	void InitWindow();
 	void InitPlayer();
 };

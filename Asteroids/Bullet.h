@@ -17,6 +17,7 @@ private:
 public:
 	void Update();
 	void Render(sf::RenderTarget* target);
+	const sf::FloatRect getBounds() const;
 	//Constructors & Destructor
 	Bullet();
 	Bullet(sf::Texture* bTexture, float dirX, float dirY, float posX, float posY, float speed);

@@ -22,12 +22,6 @@ void Player::updatePlayer(float dt, sf::RenderWindow* win)
 		this->playerMovement(0.f, 1.f);
 	}
 
-	//Shooting
-	if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	{
-
-	}
-
 	//Sprite rotation
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*win);
 	this->playerRotation(dt, (sf::Vector2f)mousePosition);

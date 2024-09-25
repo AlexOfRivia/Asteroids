@@ -26,6 +26,19 @@ void Game::updateEvents()
 	//Player Movement will go here
 
 	this->player->updatePlayer(dt, this->window);
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"],0.f,0.f,0.f,0.f,0.f));
+	}
+}
+
+void Game::bulletUpdates()
+{
+	//Rendering the bullets
+	for (auto* bullet : this->bullets)
+	{
+		bullet->Update();
+	}
 }
 
 //Rendering
@@ -34,6 +47,11 @@ void Game::Render()
 	this->window->clear(sf::Color(37,37,37,0)); //Clears old frame
 	//Rendering(drawing) the objects
 	this->player->renderPlayer(*this->window);
+	//Rendering the bullets
+	for (auto* bullet : this->bullets)
+	{
+		bullet->Render(this->window);
+	}
 	this->window->display(); //Displays new frame
 }
 
@@ -47,7 +65,6 @@ void Game::InitTextures()
 {
 	this->loadTexture["Bullet"] = new sf::Texture();
 	this->loadTexture["Bullet"]->loadFromFile("Textures/Bullet.png");
-
 }
 
 //Initializing the player object
@@ -69,6 +86,7 @@ Game::Game()
 {
 	this->InitVariables(); //this function must be first, because of window being set to nullptr
 	this->InitWindow();
+	this->InitTextures();
 	this->InitPlayer();
 }
 
@@ -82,5 +100,11 @@ Game::~Game()
 	for( auto &i : this->loadTexture)
 	{
 		delete i.second;
+	}
+
+	//Deleting bullets
+	for (auto* i: this->bullets)
+	{
+		delete i;
 	}
 }
