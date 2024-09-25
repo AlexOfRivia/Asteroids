@@ -31,11 +31,11 @@ void Game::updateEvents()
 
 	//Player Movement
 	this->player->updatePlayer(dt, this->window);
-	this->bulletUpdates();
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"], (mouseDirection.x /= magnitude), (mouseDirection.y /= magnitude), this->player->playerPos().x, this->player->playerPos().y, 2.f));
+		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"], (mouseDirection.x /= magnitude), (mouseDirection.y /= magnitude), this->player->playerPos().x, this->player->playerPos().y, 6.f));
 	}
+	this->bulletUpdates();
 }
 
 void Game::bulletUpdates()

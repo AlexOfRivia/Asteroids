@@ -7,14 +7,18 @@ void Bullet::Update()
 	//Bullet Movement
 	this->bulletSprite.move(this->bulletSpeed*this->bulletDirection);
 }
+
+//Rendering the bullet sprite
 void Bullet::Render(sf::RenderTarget* target)
 {
 	target->draw(this->bulletSprite);
 }
+
 const sf::FloatRect Bullet::getBounds() const
 {
 	return this->bulletSprite.getGlobalBounds();
 }
+
 //Constructors
 Bullet::Bullet()
 {

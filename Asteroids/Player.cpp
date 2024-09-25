@@ -81,8 +81,6 @@ void Player::playerRotation(float dt, sf::Vector2f mousePosition)
 
 	mouseDirection.x /= magnitude;
 	mouseDirection.y /= magnitude;
-	//float magnitude = sqrtf((mouseDirection.x * mouseDirection.x) + (mouseDirection.y * mouseDirection.y));
-	//mouseDirection /= magnitude;
 
 	// find angle using x-cord
 	float angle = acosf(mouseDirection.x);
