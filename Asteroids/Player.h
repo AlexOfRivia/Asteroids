@@ -15,6 +15,8 @@ public:
 	void updatePlayer(float dt, sf::RenderWindow* win); //This function is for controlling the player basically - it makes the process of adding new controlls easier
 	void renderPlayer(sf::RenderTarget& target);
 
+	const sf::Vector2f& playerPos() const;
+
 	//Constructor & Destructor
 	Player();
 	~Player();

@@ -27,6 +27,12 @@ void Player::updatePlayer(float dt, sf::RenderWindow* win)
 	this->playerRotation(dt, (sf::Vector2f)mousePosition);
 }
 
+//Get players position for bullet Instantiating
+const sf::Vector2f& Player::playerPos() const
+{
+	return this->playerSprite.getPosition(); 
+}
+
 //Rendering the player object
 void Player::renderPlayer(sf::RenderTarget& target)
 {

@@ -28,7 +28,7 @@ void Game::updateEvents()
 	this->player->updatePlayer(dt, this->window);
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"],0.f,0.f,0.f,0.f,0.f));
+		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"],1.f,1.f,this->player->playerPos().x, this->player->playerPos().y, 2.f));
 	}
 }
 
