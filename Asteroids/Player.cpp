@@ -62,7 +62,7 @@ void Player::updateCooldown()
 
 void Player::initVariavles()
 {
-	this->bulletCooldownMax = 10.f;
+	this->bulletCooldownMax = 20.f;
 	this->bulletCooldown = this->bulletCooldownMax;
 }
 
