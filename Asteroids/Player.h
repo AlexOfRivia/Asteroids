@@ -33,6 +33,8 @@ private:
 
 	float movementSpeed;
 
+	int playerHealth;
+
 	//Private Functions
 	void updateCooldown();
 	void initVariavles();
