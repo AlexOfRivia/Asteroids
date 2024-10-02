@@ -34,8 +34,10 @@ private:
 	float movementSpeed;
 
 	int playerHealth;
+	int score;
 
 	//Private Functions
+	void addScore(int &points);
 	void updateCooldown();
 	void initVariavles();
 	void InitTexture();

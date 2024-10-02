@@ -3,6 +3,7 @@
 #include <map>
 #include "Player.h"
 #include "Bullet.h"
+#include "Asteroid.h"
 
 /*
 This class basically could be called a "Game engine".

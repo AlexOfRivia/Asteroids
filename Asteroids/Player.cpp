@@ -51,6 +51,12 @@ void Player::renderPlayer(sf::RenderTarget& target)
 	target.draw(this->playerSprite);
 }
 
+void Player::addScore(int &points)
+{
+	this->score += points;
+	std::cout << "Current score: " << this->score;
+}
+
 //Updating the attack cooldown
 void Player::updateCooldown()
 {
@@ -64,6 +70,8 @@ void Player::initVariavles()
 {
 	this->bulletCooldownMax = 20.f;
 	this->bulletCooldown = this->bulletCooldownMax;
+	this->playerHealth = 3;
+	this->score = 0;
 }
 
 //Initializing the player sprite
