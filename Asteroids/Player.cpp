@@ -22,6 +22,23 @@ void Player::updatePlayer(float dt, sf::RenderWindow* win)
 		this->playerMovement(0.f, 1.f);
 	}
 
+	if (this->playerSprite.getPosition().x < 0)
+	{
+		this->playerSprite.setPosition(0.f, this->playerSprite.getPosition().y);
+	}
+	if (this->playerSprite.getPosition().y < 0)
+	{
+		this->playerSprite.setPosition(this->playerSprite.getPosition().x,0.f);
+	}
+	if (this->playerSprite.getPosition().x + this->playerSprite.getGlobalBounds().width > 1970)
+	{
+		this->playerSprite.setPosition(1970- this->playerSprite.getGlobalBounds().width, this->playerSprite.getPosition().y);
+	}
+	if (this->playerSprite.getPosition().y + this->playerSprite.getGlobalBounds().height > 1130)
+	{
+		this->playerSprite.setPosition(this->playerSprite.getPosition().x, 1130 - this->playerSprite.getGlobalBounds().height);
+	}
+
 	this->updateCooldown();
 
 	//Sprite rotation
