@@ -37,6 +37,7 @@ class Game
 	//Resources
 	std::map<std::string, sf::Texture*> loadTexture;
 	std::vector<Bullet*> bullets;
+	std::vector<Asteroid*> asteroids;
 
 	//private functions
 	void InitVariables();

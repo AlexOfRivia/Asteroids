@@ -82,7 +82,18 @@ void Game::InitTextures()
 {
 	this->loadTexture["Bullet"] = new sf::Texture();
 	this->loadTexture["Bullet"]->loadFromFile("Textures/Bullet.png");
+
+	//Small asteroid texture
+	this->loadTexture["smallAsteroid"] = new sf::Texture();
+	this->loadTexture["smallAsteroid"]->loadFromFile("Textures/AsteroidSmall.png");
+	//Medium asteroid texture
+	this->loadTexture["mediumAsteroid"] = new sf::Texture();
+	this->loadTexture["mediumAsteroid"]->loadFromFile("Textures/AsteroidMedium.png");
+	//Big asteroid texture
+	this->loadTexture["bigAsteroid"] = new sf::Texture();
+	this->loadTexture["bigAsteroid"]->loadFromFile("Textures/AsteroidBig.png");
 }
+
 
 //Initializing the player object
 void Game::InitPlayer()
@@ -121,6 +132,12 @@ Game::~Game()
 
 	//Deleting bullets
 	for (auto* i: this->bullets)
+	{
+		delete i;
+	}
+
+	//Deleting asteroids
+	for (auto* i : this->asteroids)
 	{
 		delete i;
 	}
