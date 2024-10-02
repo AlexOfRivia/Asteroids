@@ -69,10 +69,17 @@ void Game::asteroidUpdates()
 		randomIndex = rand() % 3;
 		this->asteroids.push_back(new Asteroid(&asteroidTextures[randomIndex], rand() % this->window->getSize().y * (-0.65), rand() % this->window->getSize().x * (-0.65f), 0.5f, 1.f, 1.5f));
 		
+		for (auto asteroid : this->asteroids)
+		{
+			if (asteroid)
+			{
+				asteroid->destroyAsteroid(this->asteroidTextures[0]);
+			}
+		}
+
 		this->spawnTimer = 0;
 	}
 
-	//deleting asteroids when touching screen bounds
 
 
 	//Rendering asteroids

@@ -18,6 +18,7 @@ public:
 	//Public functions
 	void renderAsteroid(sf::RenderTarget* target);
 	void updateAsteroid();
+	void destroyAsteroid(sf::Texture asTexture);
 
 	//Constructor and destructor
 	Asteroid();
@@ -31,6 +32,9 @@ private:
 	bool isdestroyed;
 	int damage;
 	float asteroidSpeed;
+
+	//player
+	Player* player;
 
 	sf::Sprite asteroidSprite;
 	sf::Texture* asteroidTexture;

@@ -74,7 +74,7 @@ void Player::renderPlayer(sf::RenderTarget& target)
 	target.draw(this->playerSprite);
 }
 
-void Player::addScore(int &points)
+void Player::addScore(int points)
 {
 	this->score += points;
 	std::cout << "Current score: " << this->score;

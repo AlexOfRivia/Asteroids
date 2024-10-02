@@ -13,6 +13,22 @@ void Asteroid::updateAsteroid()
 	this->asteroidSprite.move(this->asteroidSpeed * this->asteroidDirection);
 }
 
+void Asteroid::destroyAsteroid(sf::Texture asTexture)
+{
+	if (asTexture.loadFromFile("Textures/AsteroidSmall.png"))
+	{
+		this->player->addScore(100);
+	}
+	if (asTexture.loadFromFile("Textures/AsteroidMedium.png"))
+	{
+		this->player->addScore(200);
+	}
+	if (asTexture.loadFromFile("Textures/AsteroidBig.png"))
+	{
+		this->player->addScore(400);
+	}
+}
+
 //Constructors
 Asteroid::Asteroid()
 {
