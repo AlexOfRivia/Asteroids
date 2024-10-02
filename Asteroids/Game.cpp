@@ -64,7 +64,7 @@ void Game::asteroidUpdates()
 	this->spawnTimer += 0.1f;
 	if (this->spawnTimer >= this->spawnTimerMax)
 	{
-		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], rand()%this->window->getSize().x*0.2f, rand() % this->window->getSize().y * 0.2f, 0.f, 0.f, 0.f));
+		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], 0.f, rand() % this->window->getSize().y*(-0.5f), 1.f, 1.f, 1.f));
 		this->spawnTimer = 0;
 	}
 

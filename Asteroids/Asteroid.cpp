@@ -10,7 +10,7 @@ void Asteroid::renderAsteroid(sf::RenderTarget* target)
 //Updating asteroid object
 void Asteroid::updateAsteroid()
 {
-
+	this->asteroidSprite.move(this->asteroidSpeed * this->asteroidDirection);
 }
 
 //Constructors
