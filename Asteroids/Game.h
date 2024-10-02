@@ -39,6 +39,7 @@ class Game
 	float spawnTimerMax;
 
 	std::map<std::string, sf::Texture*> loadTexture;
+	std::map<std::string, sf::Texture*> loadAsteroidTexture;
 	std::vector<Bullet*> bullets;
 	std::vector<Asteroid*> asteroids;
 

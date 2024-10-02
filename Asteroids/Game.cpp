@@ -65,8 +65,8 @@ void Game::asteroidUpdates()
 	if (this->spawnTimer >= this->spawnTimerMax)
 	{
 		
-		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], rand() % this->window->getSize().x * (-0.4f), rand() % this->window->getSize().y*(-0.4f), 1.f, 0.5f, 1.f));
-		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], rand() % this->window->getSize().y * (-0.65), rand() % this->window->getSize().x * (-0.65f), 0.5f, 1.f, 1.f));
+		this->asteroids.push_back(new Asteroid(this->loadAsteroidTexture["smallAsteroid"], rand() % this->window->getSize().x * (-0.4f), rand() % this->window->getSize().y*(-0.4f), 1.f, 0.5f, 1.f));
+		this->asteroids.push_back(new Asteroid(this->loadAsteroidTexture["smallAsteroid"], rand() % this->window->getSize().y * (-0.65), rand() % this->window->getSize().x * (-0.65f), 0.5f, 1.f, 1.f));
 		
 		this->spawnTimer = 0;
 	}
@@ -114,14 +114,14 @@ void Game::InitTextures()
 	this->loadTexture["Bullet"]->loadFromFile("Textures/Bullet.png");
 
 	//Small asteroid texture
-	this->loadTexture["smallAsteroid"] = new sf::Texture();
-	this->loadTexture["smallAsteroid"]->loadFromFile("Textures/AsteroidSmall.png");
+	this->loadAsteroidTexture["smallAsteroid"] = new sf::Texture();
+	this->loadAsteroidTexture["smallAsteroid"]->loadFromFile("Textures/AsteroidSmall.png");
 	//Medium asteroid texture
-	this->loadTexture["mediumAsteroid"] = new sf::Texture();
-	this->loadTexture["mediumAsteroid"]->loadFromFile("Textures/AsteroidMedium.png");
+	this->loadAsteroidTexture["mediumAsteroid"] = new sf::Texture();
+	this->loadAsteroidTexture["mediumAsteroid"]->loadFromFile("Textures/AsteroidMedium.png");
 	//Big asteroid texture
-	this->loadTexture["bigAsteroid"] = new sf::Texture();
-	this->loadTexture["bigAsteroid"]->loadFromFile("Textures/AsteroidBig.png");
+	this->loadAsteroidTexture["bigAsteroid"] = new sf::Texture();
+	this->loadAsteroidTexture["bigAsteroid"]->loadFromFile("Textures/AsteroidBig.png");
 }
 
 
