@@ -98,7 +98,7 @@ void Game::InitTextures()
 //Initializing the player object
 void Game::InitPlayer()
 {
-	this->player = new Player();
+	this->player = new Player(this->window);
 }
 
 //Initializing the window

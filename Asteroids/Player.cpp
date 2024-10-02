@@ -85,6 +85,7 @@ void Player::InitSprite()
 	
 	//Resizing Sprite
 	this->playerSprite.scale(0.10f,0.10f);
+	this->playerSprite.setPosition(ssX,ssY);
 }
 
 //Initializing the player texture
@@ -129,7 +130,7 @@ void Player::playerRotation(float dt, sf::Vector2f mousePosition)
 }
 
 //Constructor
-Player::Player()
+Player::Player(sf::RenderWindow* win)
 {
 	this->movementSpeed = 3.f;
 	this->initVariavles();

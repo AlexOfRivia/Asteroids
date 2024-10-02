@@ -20,7 +20,7 @@ public:
 	const bool canShoot();
 
 	//Constructor & Destructor
-	Player();
+	Player(sf::RenderWindow* win);
 	~Player();
 
 private:
@@ -35,6 +35,9 @@ private:
 
 	int playerHealth;
 	int score;
+
+	//Integers for centering player
+	int ssX=(1920/2), ssY=(1080/2);
 
 	//Private Functions
 	void addScore(int &points);
