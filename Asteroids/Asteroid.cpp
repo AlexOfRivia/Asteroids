@@ -24,7 +24,7 @@ Asteroid::Asteroid(sf::Texture* aTexture, float posX, float posY, float dirX, fl
 {
 	this->initVariables();
 	this->asteroidSprite.setTexture(*aTexture);
-	this->asteroidSprite.scale(0.10f, 0.10f);
+	this->asteroidSprite.scale(0.25f, 0.25f);
 	this->asteroidSprite.setPosition(posX, posY);
 	this->asteroidDirection.x = dirX;
 	this->asteroidDirection.y = dirY;

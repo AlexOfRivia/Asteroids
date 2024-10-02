@@ -36,6 +36,7 @@ void Game::updateEvents()
 		this->bullets.push_back(new Bullet(this->loadTexture["Bullet"], (mouseDirection.x /= magnitude), (mouseDirection.y /= magnitude), this->player->playerPos().x, this->player->playerPos().y, 6.f));
 	}
 	this->bulletUpdates();
+	this->asteroidUpdates();
 }
 
 void Game::bulletUpdates()
@@ -60,14 +61,17 @@ void Game::bulletUpdates()
 
 void Game::asteroidUpdates()
 {
-	unsigned asteroidCounter = 0;
+	this->spawnTimer += 0.1f;
+	if (this->spawnTimer >= this->spawnTimerMax)
+	{
+		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], rand()%this->window->getSize().x*0.2f, rand() % this->window->getSize().y * 0.2f, 0.f, 0.f, 0.f));
+		this->spawnTimer = 0;
+	}
 
 	//Rendering asteroids
 	for (auto* asteroid : this->asteroids)
 	{
 		asteroid->updateAsteroid();
-
-		++asteroidCounter;
 	}
 }
 
@@ -84,12 +88,17 @@ void Game::Render()
 	{
 		bullet->Render(this->window);
 	}
+	for (auto* asteroid : this->asteroids) 
+	{
+		asteroid->renderAsteroid(this->window);
+	}
 	this->window->display(); //Displays new frame
 }
 
 //Initializing the variables
 void Game::InitVariables()
 {
+	this->spawnTimerMax = 20.f;
 	this->window = nullptr;
 }
 
