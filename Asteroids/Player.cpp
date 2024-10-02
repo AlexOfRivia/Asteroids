@@ -39,6 +39,12 @@ void Player::updatePlayer(float dt, sf::RenderWindow* win)
 		this->playerSprite.setPosition(this->playerSprite.getPosition().x, 1130 - this->playerSprite.getGlobalBounds().height);
 	}
 
+	//Managing player death
+	if (this->playerHealth = 0)
+	{
+		isDead = true;
+	}
+
 	this->updateCooldown();
 
 	//Sprite rotation
@@ -85,9 +91,10 @@ void Player::updateCooldown()
 
 void Player::initVariavles()
 {
+	this->playerHealth = 3;
+	isDead = false;
 	this->bulletCooldownMax = 20.f;
 	this->bulletCooldown = this->bulletCooldownMax;
-	this->playerHealth = 3;
 	this->score = 0;
 }
 

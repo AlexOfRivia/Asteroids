@@ -19,6 +19,8 @@ public:
 
 	const bool canShoot();
 
+	bool isDead;
+
 	//Constructor & Destructor
 	Player(sf::RenderWindow* win);
 	~Player();

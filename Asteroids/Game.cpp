@@ -62,12 +62,12 @@ void Game::bulletUpdates()
 void Game::asteroidUpdates()
 {
 	this->spawnTimer += 0.0175f;
-	if (this->spawnTimer >= this->spawnTimerMax)
+	if (this->spawnTimer >= this->spawnTimerMax && !(this->player->isDead))
 	{
 		int randomIndex = rand() % 3;
-		this->asteroids.push_back(new Asteroid(&asteroidTextures[randomIndex], rand() % this->window->getSize().x * (-0.4f), rand() % this->window->getSize().y*(-0.4f), 1.f, 0.5f, 1.f));
+		this->asteroids.push_back(new Asteroid(&asteroidTextures[randomIndex], rand() % this->window->getSize().x * (-0.4f), rand() % this->window->getSize().y*(-0.4f), 1.f, 0.5f, 1.5f));
 		randomIndex = rand() % 3;
-		this->asteroids.push_back(new Asteroid(&asteroidTextures[randomIndex], rand() % this->window->getSize().y * (-0.65), rand() % this->window->getSize().x * (-0.65f), 0.5f, 1.f, 1.f));
+		this->asteroids.push_back(new Asteroid(&asteroidTextures[randomIndex], rand() % this->window->getSize().y * (-0.65), rand() % this->window->getSize().x * (-0.65f), 0.5f, 1.f, 1.5f));
 		
 		this->spawnTimer = 0;
 	}

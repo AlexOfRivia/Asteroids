@@ -14,7 +14,6 @@ void Asteroid::updateAsteroid()
 }
 
 //Constructors
-
 Asteroid::Asteroid()
 {
 
