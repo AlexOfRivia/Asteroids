@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <map>
+#include <ctime>
 #include "Player.h"
 #include "Bullet.h"
 #include "Asteroid.h"
@@ -39,7 +40,7 @@ class Game
 	float spawnTimerMax;
 
 	std::map<std::string, sf::Texture*> loadTexture;
-	std::map<std::string, sf::Texture*> loadAsteroidTexture;
+	sf::Texture asteroidTextures[3];
 	std::vector<Bullet*> bullets;
 	std::vector<Asteroid*> asteroids;
 
