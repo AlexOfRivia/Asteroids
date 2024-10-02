@@ -58,6 +58,21 @@ void Game::bulletUpdates()
 	}
 }
 
+void Game::asteroidUpdates()
+{
+	unsigned asteroidCounter = 0;
+
+	//Rendering asteroids
+	for (auto* asteroid : this->asteroids)
+	{
+		asteroid->updateAsteroid();
+
+		++asteroidCounter;
+	}
+}
+
+
+
 //Rendering
 void Game::Render()
 {

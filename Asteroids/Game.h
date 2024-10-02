@@ -43,6 +43,7 @@ class Game
 	void InitVariables();
 	void InitTextures();
 	void bulletUpdates();
+	void asteroidUpdates();
 	void InitWindow();
 	void InitPlayer();
 };

@@ -16,11 +16,12 @@ class Asteroid
 {
 public:
 	//Public functions
-	void renderAsteroid();
+	void renderAsteroid(sf::RenderTarget* target);
 	void updateAsteroid();
 
 	//Constructor and destructor
 	Asteroid();
+	Asteroid(sf::Texture* aTexture, float posX, float posY, float dirX, float dirY, float speed);
 	~Asteroid();
 
 private:
@@ -29,13 +30,13 @@ private:
 	int health;
 	bool isdestroyed;
 	int damage;
+	float asteroidSpeed;
 
 	sf::Sprite asteroidSprite;
-	sf::Texture asteroidTexture;
+	sf::Texture* asteroidTexture;
+	sf::Vector2f asteroidDirection;
 
 	//Private functions
-	void initVariavles();
-	void InitTexture();
-	void InitSprite();
+	void initVariables();
 };
 
