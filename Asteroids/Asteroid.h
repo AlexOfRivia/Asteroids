@@ -7,7 +7,6 @@
 #include <SFML/Window.hpp>
 
 /*TODO
-- Add spawning asteroids, give them the player direction
 - Add collisions with the player, destroy the asteroid and remove 1 health from player
 - Add collisions with the bullet, destroy the bullet and add score to the player
 */

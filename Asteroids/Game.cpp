@@ -61,12 +61,18 @@ void Game::bulletUpdates()
 
 void Game::asteroidUpdates()
 {
-	this->spawnTimer += 0.1f;
+	this->spawnTimer += 0.0175f;
 	if (this->spawnTimer >= this->spawnTimerMax)
 	{
-		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], 0.f, rand() % this->window->getSize().y*(-0.5f), 1.f, 1.f, 1.f));
+		
+		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], rand() % this->window->getSize().x * (-0.4f), rand() % this->window->getSize().y*(-0.4f), 1.f, 0.5f, 1.f));
+		this->asteroids.push_back(new Asteroid(this->loadTexture["smallAsteroid"], rand() % this->window->getSize().y * (-0.65), rand() % this->window->getSize().x * (-0.65f), 0.5f, 1.f, 1.f));
+		
 		this->spawnTimer = 0;
 	}
+
+	//deleting asteroids when touching screen bounds
+
 
 	//Rendering asteroids
 	for (auto* asteroid : this->asteroids)

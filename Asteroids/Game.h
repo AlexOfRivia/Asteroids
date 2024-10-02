@@ -37,6 +37,7 @@ class Game
 	//Resources
 	float spawnTimer;
 	float spawnTimerMax;
+
 	std::map<std::string, sf::Texture*> loadTexture;
 	std::vector<Bullet*> bullets;
 	std::vector<Asteroid*> asteroids;
