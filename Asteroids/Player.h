@@ -14,6 +14,7 @@ public:
 	void playerRotation(float dt, sf::Vector2f mousePosition);
 	void updatePlayer(float dt, sf::RenderWindow* win); //This function is for controlling the player basically - it makes the process of adding new controlls easier
 	void renderPlayer(sf::RenderTarget& target);
+	const sf::FloatRect playerBounds() const;
 	void addScore(int points);
 
 	const sf::Vector2f& playerPos() const;

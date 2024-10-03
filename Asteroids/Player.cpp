@@ -74,6 +74,11 @@ void Player::renderPlayer(sf::RenderTarget& target)
 	target.draw(this->playerSprite);
 }
 
+const sf::FloatRect Player::playerBounds() const
+{
+	return this->playerSprite.getGlobalBounds();
+}
+
 void Player::addScore(int points)
 {
 	this->score += points;

@@ -13,6 +13,11 @@ void Asteroid::updateAsteroid()
 	this->asteroidSprite.move(this->asteroidSpeed * this->asteroidDirection);
 }
 
+const sf::FloatRect Asteroid::getAsteroidBounds() const
+{
+	return this->asteroidSprite.getGlobalBounds();
+}
+
 void Asteroid::destroyAsteroid(sf::Texture asTexture)
 {
 	if (asTexture.loadFromFile("Textures/AsteroidSmall.png"))
@@ -42,10 +47,10 @@ Asteroid::Asteroid()
 
 Asteroid::Asteroid(sf::Texture* aTexture, float posX, float posY, float dirX, float dirY, float speed)
 {
-	this->initVariables();
 	this->asteroidSprite.setTexture(*aTexture);
-	this->asteroidSprite.scale(0.25f, 0.25f);
 	this->asteroidSprite.setPosition(posX, posY);
+	this->asteroidSprite.scale(0.25f, 0.25f);
+	this->asteroidSprite.setOrigin(sf::Vector2f((float)this->asteroidSprite.getTexture()->getSize().x / 2, (float)this->asteroidSprite.getTexture()->getSize().y / 2));
 	this->asteroidDirection.x = dirX;
 	this->asteroidDirection.y = dirY;
 	this->asteroidSpeed = speed;
@@ -55,10 +60,4 @@ Asteroid::Asteroid(sf::Texture* aTexture, float posX, float posY, float dirX, fl
 Asteroid::~Asteroid()
 {
 
-}
-
-//Initializing asteroid variables
-void Asteroid::initVariables()
-{
-	this->isdestroyed = false;
 }

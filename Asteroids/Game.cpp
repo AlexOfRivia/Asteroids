@@ -64,17 +64,41 @@ void Game::asteroidUpdates()
 	this->spawnTimer += 0.0175f;
 	if (this->spawnTimer >= this->spawnTimerMax && !(this->player->isDead))
 	{
+		//Spawning random asteroids
 		int randomIndex = rand() % 3;
 		this->asteroids.push_back(new Asteroid(&asteroidTextures[randomIndex], rand() % this->window->getSize().x * (-0.4f), rand() % this->window->getSize().y*(-0.4f), 1.f, 0.5f, 1.5f));
 		randomIndex = rand() % 3;
 		this->asteroids.push_back(new Asteroid(&asteroidTextures[randomIndex], rand() % this->window->getSize().y * (-0.65), rand() % this->window->getSize().x * (-0.65f), 0.5f, 1.f, 1.5f));
 		
-		for (auto asteroid : this->asteroids)
+		//Deleting asteroids and bullets
+		for (int i = 0; i<this->asteroids.size(); ++i)
 		{
-			//Add collision and types of sprite
-			
-		}
+			this->asteroids[i]->updateAsteroid();
+			bool isDestroyed = false;
 
+			for (size_t j = 0; j < this->bullets.size() && isDestroyed ==false; j++)
+			{
+				if (this->asteroids[i]->getAsteroidBounds().intersects(this->bullets[j]->getBounds()))
+				{
+					
+					//Deleting bullets upon intersection
+					delete this->bullets[j];
+					this->bullets.erase(this->bullets.begin()+j);
+					//Deleting asteroids upon intersection
+					delete this->asteroids[i];
+					this->asteroids.erase(this->asteroids.begin() + i);
+					std::cout << this->asteroids.size() << "\n";
+					isDestroyed = true;
+				}
+			}
+			if (this->asteroids[i]->getAsteroidBounds().intersects(this->player->playerBounds()) && isDestroyed == false)
+			{
+				//Deleting asteroids upon intersection
+				delete this->asteroids[i];
+				this->asteroids.erase(this->asteroids.begin() + i);
+				isDestroyed = true;
+			}
+		}
 		this->spawnTimer = 0;
 	}
 

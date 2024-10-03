@@ -20,6 +20,7 @@ public:
 	void updateAsteroid();
 	void destroyAsteroid(sf::Texture asTexture);
 	const sf::Vector2f& asteroidPosition() const;
+	const sf::FloatRect getAsteroidBounds() const;
 
 	//Constructor and destructor
 	Asteroid();
@@ -30,7 +31,6 @@ private:
 
 	//Asteroid parameters
 	int health;
-	bool isdestroyed;
 	int damage;
 	float asteroidSpeed;
 
@@ -40,8 +40,5 @@ private:
 	sf::Sprite asteroidSprite;
 	sf::Texture* asteroidTexture;
 	sf::Vector2f asteroidDirection;
-
-	//Private functions
-	void initVariables();
 };
 
