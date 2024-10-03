@@ -19,6 +19,7 @@ public:
 	void renderAsteroid(sf::RenderTarget* target);
 	void updateAsteroid();
 	void destroyAsteroid(sf::Texture asTexture);
+	const sf::Vector2f& asteroidPosition() const;
 
 	//Constructor and destructor
 	Asteroid();

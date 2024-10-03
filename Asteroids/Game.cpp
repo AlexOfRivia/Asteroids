@@ -71,10 +71,8 @@ void Game::asteroidUpdates()
 		
 		for (auto asteroid : this->asteroids)
 		{
-			if (asteroid)
-			{
-				asteroid->destroyAsteroid(this->asteroidTextures[0]);
-			}
+			//Add collision and types of sprite
+			
 		}
 
 		this->spawnTimer = 0;

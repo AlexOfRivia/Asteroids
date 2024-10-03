@@ -29,6 +29,11 @@ void Asteroid::destroyAsteroid(sf::Texture asTexture)
 	}
 }
 
+const sf::Vector2f& Asteroid::asteroidPosition() const
+{
+	return this->asteroidSprite.getPosition();
+}
+
 //Constructors
 Asteroid::Asteroid()
 {
