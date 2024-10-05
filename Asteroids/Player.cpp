@@ -25,18 +25,23 @@ void Player::updatePlayer(float dt, sf::RenderWindow* win)
 	if (this->playerSprite.getPosition().x < 0)
 	{
 		this->playerSprite.setPosition(0.f, this->playerSprite.getPosition().y);
+		this->playerShape.setPosition(0.f, this->playerSprite.getPosition().y);
+
 	}
 	if (this->playerSprite.getPosition().y < 0)
 	{
 		this->playerSprite.setPosition(this->playerSprite.getPosition().x,0.f);
+		this->playerShape.setPosition(this->playerSprite.getPosition().x, 0.f);
 	}
 	if (this->playerSprite.getPosition().x + this->playerSprite.getGlobalBounds().width > 1970)
 	{
 		this->playerSprite.setPosition(1970- this->playerSprite.getGlobalBounds().width, this->playerSprite.getPosition().y);
+		this->playerShape.setPosition(1970 - this->playerSprite.getGlobalBounds().width, this->playerSprite.getPosition().y);
 	}
 	if (this->playerSprite.getPosition().y + this->playerSprite.getGlobalBounds().height > 1130)
 	{
 		this->playerSprite.setPosition(this->playerSprite.getPosition().x, 1130 - this->playerSprite.getGlobalBounds().height);
+		this->playerShape.setPosition(this->playerSprite.getPosition().x, 1130 - this->playerSprite.getGlobalBounds().height);
 	}
 
 	//Managing player death
@@ -72,11 +77,12 @@ const sf::Vector2f& Player::playerPos() const
 void Player::renderPlayer(sf::RenderTarget& target)
 {
 	target.draw(this->playerSprite);
+	target.draw(this->playerShape);
 }
 
 const sf::FloatRect Player::playerBounds() const
 {
-	return this->playerSprite.getGlobalBounds();
+	return this->playerShape.getGlobalBounds();
 }
 
 void Player::addScore(int points)
@@ -109,11 +115,14 @@ void Player::InitSprite()
 	//Set texture to sprite
 	this->playerSprite.setTexture(this->playerTexture);
 
-	//Find Center of the sprite
+	//Find Center of sprite
 	this->playerSprite.setOrigin(sf::Vector2f((float)this->playerSprite.getTexture()->getSize().x / 2, (float)this->playerSprite.getTexture()->getSize().y / 2));
-	
-	//Resizing Sprite
-	this->playerSprite.scale(0.10f,0.10f);
+	this->playerShape.setOrigin(sf::Vector2f((float)this->playerSprite.getTexture()->getSize().x / 2, (float)this->playerSprite.getTexture()->getSize().y / 2));
+	//Player shape
+	this->playerShape.setRadius((float)this->playerSprite.getTexture()->getSize().x / 2);
+	this->playerShape.setPointCount(4);
+	this->playerShape.setPosition(ssX, ssY);
+
 	this->playerSprite.setPosition(ssX,ssY);
 }
 
@@ -129,8 +138,9 @@ void Player::InitTexture()
 
 //Player movement
 void Player::playerMovement(const float& dirX, const float& dirY)
-{
+{	
 	this->playerSprite.move(this->movementSpeed*dirX,this->movementSpeed*dirY);
+	this->playerShape.move(this->movementSpeed * dirX, this->movementSpeed * dirY);
 }
 
 //Player rotation based on mouse position

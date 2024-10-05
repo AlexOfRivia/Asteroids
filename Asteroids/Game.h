@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "Asteroid.h"
+#include <SFML/Graphics.hpp>
 
 /*
 This class basically could be called a "Game engine".

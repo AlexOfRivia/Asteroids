@@ -91,12 +91,13 @@ void Game::asteroidUpdates()
 					isDestroyed = true;
 				}
 			}
-			if (this->asteroids[i]->getAsteroidBounds().intersects(this->player->playerBounds()) && isDestroyed == false)
+			if (this->player->playerBounds().intersects(this->asteroids[i]->getAsteroidBounds()))
 			{
 				//Deleting asteroids upon intersection
 				delete this->asteroids[i];
 				this->asteroids.erase(this->asteroids.begin() + i);
 				isDestroyed = true;
+				std::cout << "collision\n";
 			}
 		}
 		this->spawnTimer = 0;

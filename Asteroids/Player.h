@@ -28,6 +28,7 @@ public:
 	~Player();
 
 private:
+	sf::CircleShape playerShape;
 	sf::Sprite playerSprite;
 	sf::Texture playerTexture;
 	

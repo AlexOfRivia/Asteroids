@@ -8,6 +8,7 @@
 class Bullet
 {
 private:
+	sf::CircleShape bulletShape;
 	sf::Sprite bulletSprite;
 	sf::Texture* bulletTexture;
 	sf::Vector2f bulletDirection;
