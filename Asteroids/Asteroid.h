@@ -30,6 +30,7 @@ public:
 private:
 
 	//Asteroid parameters
+	sf::RectangleShape asteroidShape;
 	int health;
 	int damage;
 	float asteroidSpeed;
